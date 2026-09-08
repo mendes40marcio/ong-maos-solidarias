@@ -1,0 +1,61 @@
+/* ONG Mãos Solidárias - estilo base */
+:root {
+  --verde: #1e6e46;
+  --verde-escuro: #14522f;
+  --amarelo: #f5d76e;
+  --texto: #222;
+  --fundo: #fbfaf6;
+  --borda: #d9d9d3;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--fundo);
+}
+h1, h2, h3, h4 { font-family: Verdana, Arial, sans-serif; line-height: 1.2; }
+a { color: var(--verde); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--amarelo); outline-offset: 2px;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+header { background: var(--verde); color: #fff; padding: 1rem 1.5rem; }
+header h1 { margin: 0.5rem 0; font-size: 1.8rem; }
+header img { width: 160px; height: auto; background: #fff; border-radius: 10px; padding: 6px; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.2rem; flex-wrap: wrap; }
+nav a { color: #fff; font-family: Verdana, Arial, sans-serif; text-decoration: none; padding: 0.3rem 0; border-bottom: 2px solid transparent; }
+nav a:hover, nav a[aria-current="page"] { border-bottom-color: var(--amarelo); }
+
+main { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+section { margin-bottom: 2.5rem; }
+h2 { color: var(--verde-escuro); border-bottom: 2px solid var(--amarelo); padding-bottom: 0.3rem; }
+article { margin-bottom: 1.5rem; }
+article img { border-radius: 8px; margin-bottom: 0.5rem; }
+
+aside { max-width: 900px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--amarelo); border-radius: 8px; }
+aside h2 { border: none; margin-top: 0; }
+.botao { display: inline-block; background: var(--verde); color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-family: Verdana, Arial, sans-serif; }
+
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid var(--borda); padding: 0.5rem 0.7rem; text-align: left; }
+th { background: #eef3ea; font-family: Verdana, Arial, sans-serif; }
+details { margin-bottom: 0.6rem; border: 1px solid var(--borda); border-radius: 6px; padding: 0.5rem 0.8rem; background: #fff; }
+summary { cursor: pointer; font-family: Verdana, Arial, sans-serif; font-weight: bold; }
+address { font-style: normal; }
+
+fieldset { border: 1px solid var(--borda); border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1.5rem; background: #fff; }
+legend { font-family: Verdana, Arial, sans-serif; font-weight: bold; color: var(--verde-escuro); padding: 0 0.4rem; }
+label { display: block; font-family: Verdana, Arial, sans-serif; font-size: 0.95rem; margin-top: 0.8rem; }
+input, select, textarea { width: 100%; padding: 0.55rem; margin-top: 0.3rem; border: 1px solid #999; border-radius: 4px; font-size: 1rem; font-family: inherit; }
+input[type="checkbox"], input[type="radio"] { width: auto; margin-right: 0.4rem; }
+.opcao { display: flex; align-items: center; margin-top: 0.4rem; }
+input:invalid:not(:placeholder-shown) { border-color: #b3261e; }
+button { background: var(--verde); color: #fff; border: none; padding: 0.7rem 1.4rem; border-radius: 6px; font-size: 1rem; font-family: Verdana, Arial, sans-serif; cursor: pointer; }
+button:hover { background: var(--verde-escuro); }
+
+footer { background: var(--verde-escuro); color: #fff; text-align: center; padding: 1.2rem; font-size: 0.9rem; }
+footer a { color: var(--amarelo); }
