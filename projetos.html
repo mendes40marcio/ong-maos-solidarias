@@ -10,16 +10,31 @@
 </head>
 <body>
   <header>
-    <picture>
-      <source srcset="img/logo.webp" type="image/webp">
-      <img src="img/logo.png" alt="Logotipo da ONG Mãos Solidárias: mãos coloridas levantadas com corações" width="160" height="93">
-    </picture>
-    <h1>Projetos Sociais</h1>
+    <div class="marca">
+      <picture>
+        <source srcset="img/logo.webp" type="image/webp">
+        <img src="img/logo.png" alt="Logotipo da ONG Mãos Solidárias: mãos coloridas levantadas com corações" width="120" height="70">
+      </picture>
+      <h1>Projetos Sociais</h1>
+    </div>
     <nav aria-label="Menu principal">
-      <ul>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="menu-botao"><span class="visualmente-oculto">Abrir menu</span>
+        <span></span><span></span><span></span>
+      </label>
+      <ul class="menu">
         <li><a href="index.html">Início</a></li>
-        <li><a href="projetos.html" aria-current="page">Projetos Sociais</a></li>
+        <li class="tem-submenu">
+          <a href="projetos.html" aria-current="page" aria-haspopup="true">Projetos Sociais</a>
+          <ul class="submenu">
+            <li><a href="projetos.html#projetos">Reforço Escolar</a></li>
+            <li><a href="projetos.html#projetos">Cesta Solidária</a></li>
+            <li><a href="projetos.html#projetos">Inclusão Digital</a></li>
+            <li><a href="projetos.html#doacao">Campanhas de doação</a></li>
+          </ul>
+        </li>
         <li><a href="cadastro.html">Seja Voluntário</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
       </ul>
     </nav>
   </header>
@@ -33,8 +48,9 @@
 
     <section id="projetos">
       <h2>Projetos em andamento</h2>
-      <article>
-        <h3>Reforço Escolar</h3>
+      <div class="grid">
+      <article class="card col-4">
+        <h3>Reforço Escolar <span class="badge badge-sucesso">Em andamento</span></h3>
         <picture>
           <source srcset="img/educacao.webp" type="image/webp">
           <img src="img/educacao.jpg" alt="Ilustração de crianças sorrindo e escrevendo em seus cadernos em uma sala de aula" width="800" height="500">
@@ -45,8 +61,8 @@
           <li>Local: sede da ONG, Centro</li>
         </ul>
       </article>
-      <article>
-        <h3>Cesta Solidária</h3>
+      <article class="card col-4">
+        <h3>Cesta Solidária <span class="badge badge-aviso">Precisa de doações</span></h3>
         <picture>
           <source srcset="img/alimentacao.webp" type="image/webp">
           <img src="img/alimentacao.jpg" alt="Cinco jovens voluntários de camiseta verde segurando caixas de doação em um parque" width="800" height="500">
@@ -57,8 +73,8 @@
           <li>Entregas: último sábado de cada mês</li>
         </ul>
       </article>
-      <article>
-        <h3>Inclusão Digital</h3>
+      <article class="card col-4">
+        <h3>Inclusão Digital <span class="badge badge-info">Vagas abertas</span></h3>
         <picture>
           <source srcset="img/inclusao.webp" type="image/webp">
           <img src="img/inclusao.jpg" alt="Instrutora apontando para a tela de um notebook enquanto adultos mais velhos acompanham a aula em seus computadores" width="800" height="500">
@@ -69,6 +85,7 @@
           <li>Requisito: nenhum conhecimento prévio</li>
         </ul>
       </article>
+      </div>
     </section>
 
     <section id="voluntariado">
@@ -83,6 +100,9 @@
 
     <section id="doacao">
       <h2>Campanhas de doação</h2>
+      <div class="alerta alerta-aviso" role="status">
+        <p><strong>Estoque baixo</strong> A Cesta Solidária está com apenas 40 cestas para a entrega deste mês. Doações de arroz, feijão e óleo são prioridade.</p>
+      </div>
       <p>Você pode contribuir de três formas. Veja para onde vai cada tipo de doação:</p>
       <table>
         <caption>Formas de doação e destino dos recursos</caption>
@@ -90,9 +110,9 @@
           <tr><th scope="col">Tipo</th><th scope="col">Como fazer</th><th scope="col">Destino</th></tr>
         </thead>
         <tbody>
-          <tr><td>Pix mensal</td><td>Chave: contato@maossolidarias.org.br</td><td>Cesta Solidária</td></tr>
-          <tr><td>Alimentos</td><td>Entrega na sede, de segunda a sexta</td><td>Cesta Solidária</td></tr>
-          <tr><td>Equipamentos</td><td>Computadores e notebooks usados</td><td>Inclusão Digital</td></tr>
+          <tr><td data-rotulo="Tipo">Pix mensal</td><td data-rotulo="Como fazer">Chave: contato@maossolidarias.org.br</td><td data-rotulo="Destino">Cesta Solidária</td></tr>
+          <tr><td data-rotulo="Tipo">Alimentos</td><td data-rotulo="Como fazer">Entrega na sede, de segunda a sexta</td><td data-rotulo="Destino">Cesta Solidária</td></tr>
+          <tr><td data-rotulo="Tipo">Equipamentos</td><td data-rotulo="Como fazer">Computadores e notebooks usados</td><td data-rotulo="Destino">Inclusão Digital</td></tr>
         </tbody>
       </table>
     </section>
