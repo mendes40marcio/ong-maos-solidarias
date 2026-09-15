@@ -1,0 +1,114 @@
+/* ===========================================================
+   tokens.css — paleta e variáveis de tema
+   Rácios de contraste verificados no WebAIM Contrast Checker.
+   Importar antes de style.css.
+   =========================================================== */
+
+:root {
+  --fundo: #FFFFFF;
+  --superficie: #F4F6F5;
+  --texto: #1A1A1A;              /* 17.4:1 sobre --fundo */
+  --texto-secundario: #4A4A4A;   /*  8.86:1 sobre --fundo */
+  --texto-suave: #6B6B6B;        /*  5.33:1 sobre --fundo */
+  --primaria: #0B5D3B;           /*  7.95:1 com texto branco */
+  --primaria-texto: #FFFFFF;
+  --erro: #B3261E;               /*  6.54:1 sobre --fundo */
+  --sucesso: #146C43;            /*  6.45:1 sobre --fundo */
+  --borda: #D4D9D6;
+  --foco: #0B5D3B;
+  --rodape-fundo: #1A2E22;       /* 14.41:1 com texto branco */
+  --transicao: 150ms ease;
+}
+
+/* Preferência do sistema, sem escolha manual registrada */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --fundo: #121212;
+    --superficie: #1E1E1E;
+    --texto: #E8E8E8;            /* 15.29:1 sobre --fundo */
+    --texto-secundario: #BDBDBD;
+    --texto-suave: #9E9E9E;
+    --primaria: #4ADE80;         /* 10.23:1 com texto escuro */
+    --primaria-texto: #0F1A14;
+    --erro: #FF8A80;             /*  8.21:1 sobre --fundo */
+    --sucesso: #6EE7A8;
+    --borda: #333333;
+    --foco: #4ADE80;
+    --rodape-fundo: #0F1A14;
+  }
+}
+
+/* Escolha manual do usuário, gravada no localStorage */
+:root[data-tema="escuro"] {
+  --fundo: #121212;
+  --superficie: #1E1E1E;
+  --texto: #E8E8E8;
+  --texto-secundario: #BDBDBD;
+  --texto-suave: #9E9E9E;
+  --primaria: #4ADE80;
+  --primaria-texto: #0F1A14;
+  --erro: #FF8A80;
+  --sucesso: #6EE7A8;
+  --borda: #333333;
+  --foco: #4ADE80;
+  --rodape-fundo: #0F1A14;
+}
+
+/* Contraste reforçado */
+@media (prefers-contrast: more) {
+  :root {
+    --texto-secundario: var(--texto);
+    --texto-suave: var(--texto);
+    --borda: var(--texto);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --transicao: 0ms; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+body { background: var(--fundo); color: var(--texto); }
+
+/* Foco visível nos dois temas */
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Pular para o conteúdo */
+.pular-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--primaria);
+  color: var(--primaria-texto);
+  padding: 0.75rem 1rem;
+  z-index: 100;
+}
+.pular-link:focus { left: 0; }
+
+/* Estados de validação */
+.campo-invalido { border-color: var(--erro); }
+.campo-valido   { border-color: var(--sucesso); }
+.campo-invalido, .campo-valido { transition: border-color var(--transicao); }
+.mensagem-erro { color: var(--erro); font-size: 0.875rem; min-height: 1.25rem; }
+
+/* Toast */
+#toast {
+  position: fixed;
+  inset-inline: 1rem;
+  bottom: 1rem;
+  margin-inline: auto;
+  max-width: 24rem;
+  background: var(--superficie);
+  color: var(--texto);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transicao);
+}
+#toast.visivel { opacity: 1; }
